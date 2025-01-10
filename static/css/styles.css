@@ -110,7 +110,7 @@ ul {
 .sub-section:hover i,
 .sub-section:hover h1,
 .sub-section:hover p {
-    background-color: green;
+    background-color: #08348C;
     opacity: 1;
     transform: translateY(0);
 
