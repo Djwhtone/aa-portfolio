@@ -1,0 +1,131 @@
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.site-container {
+    background-image: url('../images/10.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    min-height: 100vh;
+}
+
+.nav-section {
+    display: flex;
+    flex-direction: column;
+    
+    font-weight: bold;
+    padding: 50px;
+    font-size: 20px;
+}
+
+.nav-seciton, nav  a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-seciton, nav  a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+ul, #site-header {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    
+
+    justify-content: space-evenly;
+    padding: 10px;
+    margin: 0 250px;
+}
+
+ul {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+#site-header {
+    color: #070B59;
+}
+
+.context-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(7, 11, 89, 0.6); /* Dark overlay */
+    backdrop-filter: blur(10px); /* Apply blur */
+
+    z-index: 1;
+}
+
+.fa-solid {
+    color: red;
+}
+
+.sub-container {
+    position: relative;
+    background-image: url(https://th.bing.com/th/id/R.0bed3a24efd454309a139ce6ff4f49db?rik=bcw%2bjAZE%2f7kAmQ&pid=ImgRaw&r=0);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #BFBFBF;
+    margin: 2% 0 0 40%;
+    
+    border-radius: 15px 0 0 15px;
+    font-size: 18px;
+
+    overflow: hidden;
+}
+
+/* This makes sure th context in above the design from the
+   .context-overlay and sub-container above */
+.sub-container > * {
+    position: relative;
+    z-index: 2;   
+}
+
+.sub-section {
+    padding: 45px;
+}
+
+.sub-section h1,
+.sub-section p {
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.sub-section:hover,
+.sub-section:hover i,
+.sub-section:hover h1,
+.sub-section:hover p {
+    background-color: green;
+    opacity: 1;
+    transform: translateY(0);
+
+}
+
+.sub-section:nth-child(even) {
+    border-top: 2px dashed grey; 
+    border-bottom: 2px dashed grey; 
+}
+
+.sub-container p, .section-header {
+    margin-left: 15%;
+}
+
+.sub-container p {
+    padding: 20px;
+    font-weight: bold;
+}
