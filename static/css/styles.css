@@ -1,131 +1,144 @@
-* {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+body {
+    background-color: #eaeaea;
+    overflow: hidden;
+
 }
 
-.site-container {
-    background-image: url('../images/10.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    min-height: 100vh;
-}
-
-.nav-section {
-    display: flex;
-    flex-direction: column;
-    
-    font-weight: bold;
-    padding: 50px;
-    font-size: 20px;
-}
-
-.nav-seciton, nav  a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.nav-seciton, nav  a:hover {
-    text-decoration: none;
-    color: white;
-}
-
-ul, #site-header {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    
-
-    justify-content: space-evenly;
-    padding: 10px;
-    margin: 0 250px;
-}
-
-ul {
-    background-color: rgba(255, 255, 255, 0.5);
-    margin-top: 30px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-}
-
-#site-header {
-    color: #070B59;
-}
-
-.context-overlay {
+.container {
     position: absolute;
-    top: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 600px;
+    padding: 50px;
+    background-color: #f5f5f5;
+    box-shadow: 0 30px 50px #dbdbdb;
+}
+
+#slide {
+    width: max-content;
+    margin-top: 50px;
+
+}
+
+.item {
+    width: 200px;
+    height: 300px;
+    background-position: 50% 50%;
+    display: inline-block;
+    transition: 0.5s;
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+   
+}
+
+.item:nth-child(1),
+.item:nth-child(2) {
     left: 0;
+    top: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
     width: 100%;
     height: 100%;
-
-    background-color: rgba(7, 11, 89, 0.6); /* Dark overlay */
-    backdrop-filter: blur(10px); /* Apply blur */
-
-    z-index: 1;
-}
-
-.fa-solid {
-    color: red;
-}
-
-.sub-container {
-    position: relative;
-    background-image: url(https://th.bing.com/th/id/R.0bed3a24efd454309a139ce6ff4f49db?rik=bcw%2bjAZE%2f7kAmQ&pid=ImgRaw&r=0);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: #BFBFBF;
-    margin: 2% 0 0 40%;
-    
-    border-radius: 15px 0 0 15px;
-    font-size: 18px;
-
-    overflow: hidden;
-}
-
-/* This makes sure th context in above the design from the
-   .context-overlay and sub-container above */
-.sub-container > * {
-    position: relative;
-    z-index: 2;   
-}
-
-.sub-section {
-    padding: 45px;
-}
-
-.sub-section h1,
-.sub-section p {
-    position: relative;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.sub-section:hover,
-.sub-section:hover i,
-.sub-section:hover h1,
-.sub-section:hover p {
-    background-color: #08348C;
-    opacity: 1;
-    transform: translateY(0);
+    box-shadow: none;
 
 }
 
-.sub-section:nth-child(even) {
-    border-top: 2px dashed grey; 
-    border-bottom: 2px dashed grey; 
+.item:nth-child(3) {
+    left: 60%;
 }
 
-.sub-container p, .section-header {
-    margin-left: 15%;
+.item:nth-child(4) {
+    left: calc(60% + 220px);
 }
 
-.sub-container p {
+/* us this if we add another element in the html context for now we only have 3 pages. 
+.item:nth-child(5) {
+    left: calc(50% + 440px);
+} */
+
+.item .content {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    width: 300px;
+    text-align: left;
     padding: 20px;
+    color: black;
+    transform: translate(0,-50%);
+    display: none;
+    font-family: system-ui;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 40px;
+
+}
+
+.item:nth-child(2) .content {
+    display: block;
+    z-index: 11111;
+}
+
+.item .name {
+    font-size: 40px;
     font-weight: bold;
+    opacity: 0;
+    animation: showcontent 1s ease-in-out 1 forwards
+
+}
+
+.item .des {
+    margin: 20px 0;
+    opacity: 0;
+    animation: showcontent 1s ease-in-out 0.3s forwards
+}
+
+.item button {
+    padding: 10px 20px;
+    border: none;
+
+    color: #eee;
+    background-color: #007bff;
+
+    opacity: 0;
+    animation: showcontent 1s ease-in-out 0.6s forwards
+}
+
+@keyframes showcontent{
+    from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }to {
+        opacity: 1;
+        transform: translate(0,0);
+        filter: blur(0);
+    }
+}
+
+.buttons {
+    position: absolute;
+    bottom: 30px;
+    z-index: 222222;
+    text-align: center;
+    width: 100%;
+}
+
+.buttons button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #555;
+    transition: 0.5s;
+}
+
+.buttons button:hover {
+    background-color: #bac383;
+
 }
